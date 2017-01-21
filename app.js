@@ -1,10 +1,10 @@
 const http = require('http');
 
-var connect = require('connect');
+let connect = require('connect');
 
-var connectRoute = require('connect-route');
+let connectRoute = require('connect-route');
  
-var app = connect();
+let app = connect();
 
 const port = 3000;
 
@@ -20,3 +20,6 @@ app.use(connectRoute(function (router) {
 }));
  
 app.listen(port);
+
+console.log("Server is listening port: "+port);
+console.log(`Server is listening port: ${port}`);
