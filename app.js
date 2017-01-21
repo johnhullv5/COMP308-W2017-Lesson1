@@ -10,6 +10,7 @@ const port = 3000;
 
 app.use(connectRoute(function (router) {
     router.get('/', function (req, res, next) {
+      res.setHeader('Content-Type', 'text/plain');
         res.end('index');
     });
  
