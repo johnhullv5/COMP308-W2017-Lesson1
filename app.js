@@ -1,14 +1,22 @@
 const http = require('http');
 
-const hostname = '127.0.0.1';
+var connect = require('connect');
+
+var connectRoute = require('connect-route');
+ 
+var app = connect();
+
 const port = 3000;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
-});
-
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.use(connectRoute(function (router) {
+    router.get('/', function (req, res, next) {
+        res.end('index');
+    });
+ 
+    router.get('/hello', function (req, res, next) {
+        res.end('home');
+    });
+ 
+}));
+ 
+app.listen(port);
